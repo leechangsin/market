@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" id="WebApp_ID" version="4.0">
+  <display-name>Market</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <context-param>
+  	<param-name>shutDownTime</param-name>
+  	<param-value>2021-01-01 06:00:00</param-value>
+  </context-param>
+  
+  <filter>
+  	<filter-name>filter2</filter-name>
+  	<filter-class>chapter7.Filter2</filter-class>
+  </filter>
+  
+  <filter-mapping>
+  	<filter-name>filter2</filter-name>
+  	<url-pattern>/chap7/filter/*</url-pattern>
+  </filter-mapping>
+  
+  <filter>
+  	<filter-name>filter1</filter-name>
+  	<filter-class>chapter7.Filter1</filter-class>
+  </filter>
+  
+  <filter-mapping>
+  	<filter-name>filter1</filter-name>
+  	<url-pattern>/chap7/filter/*</url-pattern>
+  </filter-mapping>
+  
+  <servlet>
+  	<servlet-name>first</servlet-name>
+  	<servlet-class>chapter2.Hello</servlet-class>
+  </servlet>
+  
+  <servlet>
+  	<servlet-name>Chap5Ex1</servlet-name>
+  	<servlet-class>chapter5.Chap5Ex1</servlet-class>
+  	<init-param>
+  		<param-name>ID_LENGTH</param-name>
+  		<param-value>20</param-value>
+  	</init-param>
+  	<load-on-startup>1</load-on-startup>
+  </servlet>
+  
+  
+  <servlet-mapping>
+  	<servlet-name>first</servlet-name>
+  	<url-pattern>/chapter2/first</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+  	<servlet-name>Chap5Ex1</servlet-name>
+  	<url-pattern>/chap5/ex1</url-pattern>
+  </servlet-mapping>
+</web-app>
+
+
+
+
+
+
+

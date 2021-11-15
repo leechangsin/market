@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<script type="text/javascript">
+		$.ajax({
+			url: "/Market/chapter10/MOCK_DATA.json",
+			dataType: "json",
+			success: function(info) {
+				// 응답 받은 데이터에 하나씩 접근해서 출력하세요.
+				console.log(info);
+				cosnole.log(info["email"]);
+				cosnole.log(info["first_name"]);
+			},
+			error: function() {
+				alert("요청에 문제가 생겼음");
+			}
+		});
+	</script>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<strong>index.html</strong>
+	
+	<hr>
+	
+	<span class="nowTime"></span>
+	
+	<hr>
+	
+	<button type="button" class="clickable">ajax 호출!</button>
+	
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+	<script>
+		setInterval(function() {
+			let date = new Date();
+			
+			let $nowTime = $(".nowTime");
+			$nowTime.text(date.toLocaleString());
+		}, 100);
+		
+		$(".clickable").on("click", function() {
+			$.ajax({
+				url: "/Market/chap10/ex1",
+				dataType: "text",
+				success: function(data) {
+					alert(data + " 가 응답 왔음");
+				},
+				error: function(status) {
+					// 문제가 발생했을 때 실행할 콜백 함수에 매개변수를 선언해놓으면
+					// 자바스크립트가 콜백 함수를 호출할 때 매개변수로
+					// 응답과 관련된 정보를 갖고 있는 객체를 전달해줌
+					alert("요청에 문제가 생겼음");
+					
+					console.log(status);
+				}
+			});
+			
+			$.ajax({
+				url: "/Market/chap10/ex2",
+				type: "POST",
+				dataType: "json",
+				success: function(data) {
+// 					console.log(data);
+					
+// 					console.log("age = " + data["age"]);
+// 					console.log("height = " + data.height);
+// 					console.log("name = " + data["name"]);
+// 					let array = data["array"];
+// 					for(let i=0; i<array.length; i++) {
+// 						console.log(array[i]);
+// 					}
+
+					let info = data["info"];
+					console.log("age = " + info["age"]);
+					console.log("height = " + info["height"]);
+					console.log("name = " + info["name"]);
+				},
+				error: function() {
+					alert("요청에 문제가 생겼음");
+				}
+			});
+			
+			$.ajax({
+				
+			});
+		});
+	
+		// ajax는 jquery에서 제공하는 메서드
+		// GET, POST, DELETE, UPDATE, PUT 등 다양한 방식으로 요청할 수 있음
+		// ajax로 서버와 통신을 하면 서버가 응답할 때는 간단하게 상태코드로만 응답을 하거나
+		// 간단한 텍스트 또는 JSON으로 응답을 함
+		// JSON -> 데이터 형식 / JavaScript Object Notation
+		
+		// $.ajax({인자1, 인자2, 인자3, 인자4, ...});
+		// 자바스크립트와 자바의 큰 차이는 메서드를 호출할 때 인자를 전달하는 방식에 차이가 있음
+// 		$.ajax({
+// 			url: "호출할 서비스의 URL",
+// 			type: "요청 방법(Method / GET, POST, UPDATE(PUT), DELETE)",
+// 			data: "서비스로 전달하는 데이터(파라미터)",
+// 			dataType: "응답을 받은 데이터의 타입",
+// 			scucess: function(data) {
+// 				// 요청이 성공했을 때, 응답으로 400, 500이 아닌 상태 코드를 받았을 때
+// 				// 동작할 코드
+// 			},
+// 			error: function(status) {
+// 				// 요청이 실패했을 때, 응답으로 400, 500 상태 코드를 받았을 때
+// 				// 동작할 코드
+// 			}
+// 		});
+	</script>
+</body>
+</html>
+
+
+
+
+
